@@ -4,11 +4,11 @@ CFD::ScalableVectorObject::ScalableVectorObject() {}
 
 CFD::ScalableVectorObject::~ScalableVectorObject() {}
 
-void CFD::ScalableVectorObject::set_outer_points(std::vector<Vector2> outer_points) {
+void CFD::ScalableVectorObject::set_outer_points(std::vector<CFD::Vector2> outer_points) {
     this->outer_points = outer_points;
 }
 
-std::vector<Vector2> CFD::ScalableVectorObject::get_outer_points() {
+std::vector<CFD::Vector2> CFD::ScalableVectorObject::get_outer_points() {
     return this->outer_points;
 }
 
@@ -37,13 +37,13 @@ void CFD::ScalableVectorObject::rotate(float angle) {
     }
 }
 
-void CFD::ScalableVectorObject::add_offset(Vector2 offset) {
+void CFD::ScalableVectorObject::add_offset(CFD::Vector2 offset) {
     for (size_t i = 0; i < this->outer_points.size(); i++) {
         this->outer_points.at(i) += offset;
     }
 }
 
-Vector2 CFD::ScalableVectorObject::get_object_center() {
+CFD::Vector2 CFD::ScalableVectorObject::get_object_center() {
     CFD::Vector2 center;
 
     for (size_t i = 0; i < this->outer_points.size(); i++) {
