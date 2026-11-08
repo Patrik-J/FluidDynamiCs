@@ -137,7 +137,7 @@ Matrix2x2& operator*=(float f) {
 }
 
 // /// @brief matrix multiplication
-Matrix2x2 operator*(const Matrix2x2& a, const Matrix2x2& a) {
+Matrix2x2 operator*(const Matrix2x2& a, const Matrix2x2& b) {
     return {
         a.matrix[0] * b.matrix[0] + a.matrix[1] + b.matrix[2],
         a.matrix[0] * b.matrix[1] + a.matrix[1] + b.matrix[3],
