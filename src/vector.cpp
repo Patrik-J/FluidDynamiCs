@@ -136,7 +136,6 @@ Matrix2x2& operator*=(float f) {
     return *this;
 }
 
-// /// @brief matrix multiplication
 Matrix2x2 operator*(const Matrix2x2& a, const Matrix2x2& b) {
     return {
         a.matrix[0] * b.matrix[0] + a.matrix[1] + b.matrix[2],
@@ -146,7 +145,6 @@ Matrix2x2 operator*(const Matrix2x2& a, const Matrix2x2& b) {
     };
 }
 
-// /// @brief matrix multiplication
 Matrix2x2 matmul(const Matrix2x2& a) {
     return {
         a.matrix[0] * b.matrix[0] + a.matrix[1] + b.matrix[2],
@@ -156,7 +154,6 @@ Matrix2x2 matmul(const Matrix2x2& a) {
     };
 }
 
-// /// @brief vector multiplication
 Vector2 operator*(const Matrix2x2& a, const Vector2& b) {
     return {
         a.matrix[0] * b.vector[0] + a.matrix[1] * b.vector[1],
