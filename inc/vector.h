@@ -69,7 +69,7 @@ class Matrix2x2 {
         Matrix2x2& operator*=(float f);
         
         /// @brief matrix multiplication
-        friend Matrix2x2 operator*(const Matrix2x2& a, const Matrix2x2& a);
+        friend Matrix2x2 operator*(const Matrix2x2& a, const Matrix2x2& b);
         /// @brief matrix multiplication
         Matrix2x2 matmul(const Matrix2x2& a);
 
