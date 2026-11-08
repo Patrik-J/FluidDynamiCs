@@ -6,6 +6,10 @@ Vector2::Vector2() {}
 
 Vector2::Vector2(float x, float y) : vector{x, y} {}
 
+Vector2::~Vector2() {
+    delete[] this->vector;
+}
+
 Vector2 operator+(const Vector2& a, const Vector2& b) {
     return {
         a[0] + b[0],
@@ -84,6 +88,10 @@ const float& Vector2::operator[](size_t index) const {
 Matrix2x2::Matrix2x2() {};
 
 Matrix2x2::Matrix2x2(float a11, float a12, float a21, float a22) : matrix{a11, a12, a21, a22} {}
+
+Matrix2x2::~Matrix2x2() {
+    delete[] this->matrix;
+};
 
 Matrix2x2 operator+(const Matrix2x2& a, const Matrix2x2& b) {
     return {

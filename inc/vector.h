@@ -10,6 +10,7 @@ class Vector2 {
         /// @brief constructor
         Vector2();
         Vector2(float x, float y);
+        ~Vector2();
 
         /// @brief addition
         friend Vector2 operator+(const Vector2& a, const Vector2& b);
@@ -52,6 +53,7 @@ class Matrix2x2 {
         /// @brief constructor
         Matrix2x2();
         Matrix2x2(float a11, float a12, float a21, float a22);
+        ~Matrix2x2();
 
         /// @brief addition
         friend Matrix2x2 operator+(const Matrix2x2& a, const Matrix2x2& b);
