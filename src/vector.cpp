@@ -59,13 +59,13 @@ Vector2& Vector2::operator*=(float f) {
     return *this;
 }
 
-Vector2& operator+=(const Vector2& a) {
+Vector2& Vector2::operator+=(const Vector2& a) {
     this->vector[0] += a[0];
     this->vector[1] += a[1];
     return *this;
 }  
 
-Vector2& operator-=(const Vector2& a) {
+Vector2& Vector2::operator-=(const Vector2& a) {
     this->vector[0] -= a[0];
     this->vector[1] -= a[1];
     return *this;
@@ -148,7 +148,7 @@ Matrix2x2& Matrix2x2::operator*=(float f) {
     return *this;
 }
 
-Matrix2x2& operator+=(const Matrix2x2& a) {
+Matrix2x2& Matrix2x2::operator+=(const Matrix2x2& a) {
     (*this)(0, 0) += a(0, 0);
     (*this)(0, 1) += a(0, 1);
     (*this)(1, 0) += a(1, 0);
@@ -156,7 +156,7 @@ Matrix2x2& operator+=(const Matrix2x2& a) {
     return *this;
 }
 
-Matrix2x2& operator-=(const Matrix2x2& a) {
+Matrix2x2& Matrix2x2::operator-=(const Matrix2x2& a) {
     (*this)(0, 0) -= a(0, 0);
     (*this)(0, 1) -= a(0, 1);
     (*this)(1, 0) -= a(1, 0);
