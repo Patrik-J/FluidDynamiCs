@@ -131,7 +131,7 @@ Matrix2x2 operator/(const Matrix2x2& a, float f) {
 }
 
 Matrix2x2& Matrix2x2::operator=(const Matrix2x2& a) {
-    if (this != *a) {
+    if (this != &a) {
         (*this)(0, 0) = a(0, 0);
         (*this)(0, 1) = a(0, 1);
         (*this)(1, 0) = a(1, 0);
@@ -166,19 +166,19 @@ Matrix2x2& Matrix2x2::operator-=(const Matrix2x2& a) {
 
 Matrix2x2 operator*(const Matrix2x2& a, const Matrix2x2& b) {
     return {
-        (*this)(0, 0) * b(0, 0) + (*this)(0, 1) * b(1, 0),
-        (*this)(0, 0) * b(0, 1) + (*this)(0, 1) * b(1, 1), 
-        (*this)(1, 0) * b(0, 0) + (*this)(1, 1) * b(1, 0), 
-        (*this)(1, 0) * b(0, 1) + (*this)(1, 1) * b(1, 1), 
+        a(0, 0) * b(0, 0) + a(0, 1) * b(1, 0),
+        a(0, 0) * b(0, 1) + a(0, 1) * b(1, 1), 
+        a(1, 0) * b(0, 0) + a(1, 1) * b(1, 0), 
+        a(1, 0) * b(0, 1) + a(1, 1) * b(1, 1), 
     };
 }
 
 Matrix2x2 Matrix2x2::matmul(const Matrix2x2& a) {
     return {
-        (*this)(0, 0) * b(0, 0) + (*this)(0, 1) * b(1, 0),
-        (*this)(0, 0) * b(0, 1) + (*this)(0, 1) * b(1, 1), 
-        (*this)(1, 0) * b(0, 0) + (*this)(1, 1) * b(1, 0), 
-        (*this)(1, 0) * b(0, 1) + (*this)(1, 1) * b(1, 1), 
+        (*this)(0, 0) * a(0, 0) + (*this)(0, 1) * a(1, 0),
+        (*this)(0, 0) * a(0, 1) + (*this)(0, 1) * a(1, 1), 
+        (*this)(1, 0) * a(0, 0) + (*this)(1, 1) * a(1, 0), 
+        (*this)(1, 0) * a(0, 1) + (*this)(1, 1) * a(1, 1), 
     };
 }
 
