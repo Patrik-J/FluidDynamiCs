@@ -32,6 +32,10 @@ class Vector2 {
         Vector2& operator=(const Vector2& a);
         /// @brief assignment operator
         Vector2& operator*=(float f);
+        /// @brief assignment operator
+        Vector2& operator+=(const Vector2& a);
+        /// @brief assignment operator
+        Vector2& operator-=(const Vector2& a);
         
         /// @brief element manipulation
         float& operator[](size_t index);
@@ -67,6 +71,10 @@ class Matrix2x2 {
         Matrix2x2& operator=(const Matrix2x2& a);
         /// @brief assignment operator
         Matrix2x2& operator*=(float f);
+        /// @brief assignment operator
+        Matrix2x2& operator+=(const Matrix2x2& a);
+        /// @brief assignment operator
+        Matrix2x2& operator-=(const Matrix2x2& a);
         
         /// @brief matrix multiplication
         friend Matrix2x2 operator*(const Matrix2x2& a, const Matrix2x2& b);
