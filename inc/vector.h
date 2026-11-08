@@ -103,6 +103,13 @@ namespace CFD {
     /// @return the two-dimensional rotation matrix
     Matrix2x2 get_rotation_matrix(float angle);
 
+    inline const Matrix2x2 MirrorXMatrix = {
+        -1.0, 0.0, 1.0, 0.0
+    };
+
+    inline const Matrix2x2 MirrorYMatrix = {
+        1.0, 0.0, -1.0, 0.0
+    };
 }
 
 #endif 
