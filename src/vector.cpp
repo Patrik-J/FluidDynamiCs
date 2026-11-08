@@ -118,7 +118,7 @@ Matrix2x2 operator/(const Matrix2x2& a, float f) {
     };
 }
 
-Matrix2x2& operator=(const Matrix2x2& a) {
+Matrix2x2& Matrix2x2::operator=(const Matrix2x2& a) {
     if (this != *a) {
         this->matrix[0] = a[0];
         this->matrix[1] = a[1];
@@ -128,7 +128,7 @@ Matrix2x2& operator=(const Matrix2x2& a) {
     return *this;
 }
 
-Matrix2x2& operator*=(float f) {
+Matrix2x2& Matrix2x2::operator*=(float f) {
     this->matrix[0] *= f;
     this->matrix[1] *= f;
     this->matrix[2] *= f;
