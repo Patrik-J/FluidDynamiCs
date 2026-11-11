@@ -1,4 +1,4 @@
-#include "svobject.h"
+#include "svobject.hpp"
 
 CFD::ScalableVectorObject::ScalableVectorObject() {}
 
