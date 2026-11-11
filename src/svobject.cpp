@@ -97,14 +97,14 @@ float CFD::ScalableVectorObject::get_max_width() {
     return max_x - min_x;
 }
 
-ScalableVectorObject& operator=(const ScalableVectorObject& obj) {
+CFD::ScalableVectorObject& CFD::ScalableVectorObject::operator=(const ScalableVectorObject& obj) {
     if (this != &obj) {
-        this->outer_points = a.get_outer_points();
+        this->outer_points = obj.get_outer_points();
     } 
     return *this;
 }
 
-ScalableVectorObject generate_sv_object(std::function<float(float, float)> func, int resolution = 100) {
+CFD::ScalableVectorObject generate_sv_object(std::function<float(float, float)> func, int resolution = 100) {
     std::vector<CFD::Vector2> outer_points;
     float angle = 0.0f, radius = 0.0f, step = 0.1f, maxR = 100.0f;
     for (int i = 0; i < resolution; i++) {
@@ -138,7 +138,7 @@ CFD::Vector2 polar_to_cartesian(CFD::Vector2 polar_vector) {
     return cartesian;
 }
 
-Vector2 cartesian_to_polar(Vector2 cartesian_vector) {
+CFD::Vector2 cartesian_to_polar(CFD::Vector2 cartesian_vector) {
     CFD::Vector2 polar;
 
     float x = cartesian_vector[0], y = cartesian_vector[1];
