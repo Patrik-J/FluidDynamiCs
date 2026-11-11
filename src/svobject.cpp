@@ -2,6 +2,10 @@
 
 CFD::ScalableVectorObject::ScalableVectorObject() {}
 
+CFD::ScalableVectorObject::ScalableVectorObject(std::vector<CFD::Vector2> outer_points) {
+    this->outer_points = outer_points;
+}
+
 CFD::ScalableVectorObject::~ScalableVectorObject() {}
 
 void CFD::ScalableVectorObject::set_outer_points(std::vector<CFD::Vector2> outer_points) {

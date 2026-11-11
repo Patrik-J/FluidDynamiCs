@@ -14,8 +14,11 @@ namespace CFD {
     /// @brief this class defines the objects which are used to perform CFD on
     class ScalableVectorObject {
         public:
-            /// @brief constructor
+            /// @brief empty constructor
             ScalableVectorObject();
+
+            /// @brief constructor
+            ScalableVectorObject(std::vector<Vector2> outer_points);
 
             /// @brief destructor
             ~ScalableVectorObject();
