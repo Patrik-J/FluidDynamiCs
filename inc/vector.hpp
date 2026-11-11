@@ -4,7 +4,7 @@
 #include <stdint.h>
 #include <cmath>
 
-namespace CFD {
+namespace MATH {
 
     /// @brief simple class for two dimensional vectors (floating-point data type)
     class Vector2 {

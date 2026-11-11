@@ -2,17 +2,17 @@
 
 CFD::ScalableVectorObject::ScalableVectorObject() {}
 
-CFD::ScalableVectorObject::ScalableVectorObject(std::vector<CFD::Vector2> outer_points) {
+CFD::ScalableVectorObject::ScalableVectorObject(std::vector<MATH::Vector2> outer_points) {
     this->outer_points = outer_points;
 }
 
 CFD::ScalableVectorObject::~ScalableVectorObject() {}
 
-void CFD::ScalableVectorObject::set_outer_points(std::vector<CFD::Vector2> outer_points) {
+void CFD::ScalableVectorObject::set_outer_points(std::vector<MATH::Vector2> outer_points) {
     this->outer_points = outer_points;
 }
 
-std::vector<CFD::Vector2> CFD::ScalableVectorObject::get_outer_points() {
+std::vector<MATH::Vector2> CFD::ScalableVectorObject::get_outer_points() {
     return this->outer_points;
 }
 
@@ -41,14 +41,14 @@ void CFD::ScalableVectorObject::rotate(float angle) {
     }
 }
 
-void CFD::ScalableVectorObject::add_offset(CFD::Vector2 offset) {
+void CFD::ScalableVectorObject::add_offset(MATH::Vector2 offset) {
     for (size_t i = 0; i < this->outer_points.size(); i++) {
         this->outer_points.at(i) += offset;
     }
 }
 
-CFD::Vector2 CFD::ScalableVectorObject::get_object_center() {
-    CFD::Vector2 center;
+MATH::Vector2 CFD::ScalableVectorObject::get_object_center() {
+    MATH::Vector2 center;
 
     for (size_t i = 0; i < this->outer_points.size(); i++) {
         center += this->outer_points.at(i);
@@ -68,7 +68,7 @@ float CFD::ScalableVectorObject::get_max_height() {
     float max_y = this->outer_points.at(0)[1];
 
     for (size_t i = 0; i < this->outer_points.size(); i++) {
-        CFD::Vector2 v = this->outer_points.at(i);
+        MATH::Vector2 v = this->outer_points.at(i);
         
         if (v[1] > max_y) {
             max_y = v[1];
@@ -89,7 +89,7 @@ float CFD::ScalableVectorObject::get_max_width() {
     float max_x = this->outer_points.at(0)[0];
 
     for (size_t i = 0; i < this->outer_points.size(); i++) {
-        CFD::Vector2 v = this->outer_points.at(i);
+        MATH::Vector2 v = this->outer_points.at(i);
         
         if (v[1] > max_x) {
             max_x = v[1];
@@ -109,7 +109,7 @@ CFD::ScalableVectorObject& CFD::ScalableVectorObject::operator=(const ScalableVe
 }
 
 CFD::ScalableVectorObject generate_sv_object(std::function<float(float, float)> func, int resolution = 100) {
-    std::vector<CFD::Vector2> outer_points;
+    std::vector<MATH::Vector2> outer_points;
     float angle = 0.0f, radius = 0.0f, step = 0.1f, maxR = 100.0f;
     for (int i = 0; i < resolution; i++) {
         // for each angle increase the radius until the object outline is 'hit'
@@ -131,8 +131,8 @@ CFD::ScalableVectorObject generate_sv_object(std::function<float(float, float)> 
     return CFD::ScalableVectorObject(outer_points);
 }
 
-CFD::Vector2 polar_to_cartesian(CFD::Vector2 polar_vector) {
-    CFD::Vector2 cartesian;
+MATH::Vector2 polar_to_cartesian(MATH::Vector2 polar_vector) {
+    MATH::Vector2 cartesian;
 
     float radius = polar_vector[0], angle = polar_vector[1];
 
@@ -142,8 +142,8 @@ CFD::Vector2 polar_to_cartesian(CFD::Vector2 polar_vector) {
     return cartesian;
 }
 
-CFD::Vector2 cartesian_to_polar(CFD::Vector2 cartesian_vector) {
-    CFD::Vector2 polar;
+MATH::Vector2 cartesian_to_polar(MATH::Vector2 cartesian_vector) {
+    MATH::Vector2 polar;
 
     float x = cartesian_vector[0], y = cartesian_vector[1];
 

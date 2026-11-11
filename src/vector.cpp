@@ -1,6 +1,6 @@
 #include "vector.hpp"
 
-using namespace CFD;
+using namespace MATH;
 
 // ---------- Vector2 ----------
 
@@ -214,7 +214,7 @@ const float& Matrix2x2::operator()(size_t i, size_t j) const {
     return this->matrix[j * 2 + i];
 }
 
-Matrix2x2 CFD::get_rotation_matrix(float angle) {
+Matrix2x2 MATH::get_rotation_matrix(float angle) {
     return {
         std::cosf(angle), -std::sinf(angle), std::cosf(angle), std::sinf(angle) 
     };
