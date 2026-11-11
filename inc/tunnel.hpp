@@ -2,7 +2,7 @@
 #define TUNNEL_H
 
 #include <cmath>
-#include "vector.h"
+#include "vector.hpp"
 
 namespace CFD {
     struct Tunnel {
