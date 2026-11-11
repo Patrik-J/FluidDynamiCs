@@ -103,7 +103,7 @@ float CFD::ScalableVectorObject::get_max_width() {
 
 CFD::ScalableVectorObject& CFD::ScalableVectorObject::operator=(const ScalableVectorObject& obj) {
     if (this != &obj) {
-        this->outer_points = obj.get_outer_points();
+        this->outer_points = obj.outer_points;
     } 
     return *this;
 }
@@ -150,5 +150,5 @@ CFD::Vector2 cartesian_to_polar(CFD::Vector2 cartesian_vector) {
     polar[0] = std::sqrtf(std::powf(x, 2) + std::powf(y, 2));
     polar[1] = std::atan(y / x);
 
-    return cartesian;
+    return polar;
 }
