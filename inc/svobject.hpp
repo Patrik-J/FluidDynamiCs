@@ -6,7 +6,7 @@
 #include <stdint.h>
 #include <cmath>
 
-#include "vector.h"
+#include "vector.hpp"
 
 constexpr float PI = 3.14159265f;
 
@@ -86,7 +86,13 @@ namespace CFD {
     /// @brief convert a polar vector to a cartesian vector
     /// @param polar_vector Vector2 with radius [0] and angle [1]
     /// @returns cartesian vector
-    CFD::Vector2 polar_to_cartesian(CFD::Vector2 polar_vector);
+    Vector2 polar_to_cartesian(Vector2 polar_vector);
+
+    /// @brief convert a cartesian vector to a cartesian vector
+    /// @param polar_vector Vector2 with x [0] and y [1]
+    /// @returns polar vector
+    Vector2 cartesian_to_polar(Vector2 cartesian_vector);
+
 }
 
 #endif

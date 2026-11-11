@@ -137,3 +137,14 @@ CFD::Vector2 polar_to_cartesian(CFD::Vector2 polar_vector) {
 
     return cartesian;
 }
+
+Vector2 cartesian_to_polar(Vector2 cartesian_vector) {
+    CFD::Vector2 polar;
+
+    float x = cartesian_vector[0], y = cartesian_vector[1];
+
+    polar[0] = std::sqrtf(std::powf(x, 2) + std::powf(y, 2));
+    polar[1] = std::atan(y / x);
+
+    return cartesian;
+}
