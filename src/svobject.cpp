@@ -96,3 +96,44 @@ float CFD::ScalableVectorObject::get_max_width() {
 
     return max_x - min_x;
 }
+
+ScalableVectorObject& operator=(const ScalableVectorObject& obj) {
+    if (this != &obj) {
+        this->outer_points = a.get_outer_points();
+    } 
+    return *this;
+}
+
+ScalableVectorObject generate_sv_object(std::function<float(float, float)> func, int resolution = 100) {
+    std::vector<CFD::Vector2> outer_points;
+    float angle = 0.0f, radius = 0.0f, step = 0.1f, maxR = 100.0f;
+    for (int i = 0; i < resolution; i++) {
+        // for each angle increase the radius until the object outline is 'hit'
+        
+        // current angle
+        angle = i * 360.0f/resolution;
+
+        // current radius
+        radius = 0.0f;
+
+        // increase radius
+        while (func(radius + step, angle) == 0.0f) {
+            radius += step;
+        }
+
+        // add the polar coordinates of the (radius, angle) pair
+        outer_points.push_back(polar_to_cartesian({radius, angle}));
+    }   
+    return CFD::ScalableVectorObject(outer_points);
+}
+
+CFD::Vector2 polar_to_cartesian(CFD::Vector2 polar_vector) {
+    CFD::Vector2 cartesian;
+
+    float radius = polar_vector[0], angle = polar_vector[1];
+
+    cartesian[0] = radius * std::cosf(angle);
+    cartesian[1] = radius * std::sinf(angle);
+
+    return cartesian;
+}

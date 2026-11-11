@@ -50,6 +50,9 @@ namespace CFD {
             /// @brief get the current maximal horizontal distance between the most left and right points
             float get_max_width();
 
+            /// @brief assignment operator for object copies
+            ScalableVectorObject& operator=(const ScalableVectorObject& obj);
+
         private:
             std::vector<Vector2> outer_points;
     };
@@ -79,6 +82,11 @@ namespace CFD {
         else
             return 0.0f;
     }, 360);
+
+    /// @brief convert a polar vector to a cartesian vector
+    /// @param polar_vector Vector2 with radius [0] and angle [1]
+    /// @returns cartesian vector
+    CFD::Vector2 polar_to_cartesian(CFD::Vector2 polar_vector);
 }
 
 #endif
